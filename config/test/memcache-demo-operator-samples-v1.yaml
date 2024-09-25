@@ -1,0 +1,7 @@
+apiVersion: cache.example.com/v1alpha1
+kind: Memcached
+metadata:
+  name: memcached-sample
+spec:
+  containerPort: 11211
+  size: 1

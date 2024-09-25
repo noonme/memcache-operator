@@ -1,0 +1,33 @@
+# Default values for mytest-memcached.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+namespaceOverride: "project-system"
+
+global:
+  imageRegistry: ""
+  nodeSelector: {}
+imageRegistryOverride: ""
+# value of mytest-memcached
+operator:
+  containers:
+    operator:
+      image:
+        repo: swr.cn-north-4.myhuaweicloud.com/stathe/kubebuilder-controller
+        tag: v1
+        pullPolicy: IfNotPresent
+      resources:
+        limits:
+          cpu: 500m
+          memory: 128Mi
+        requests:
+          cpu: 10m
+          memory: 64Mi
+    memcached:
+      image:
+        repo: memcached
+        tag: 1.4.36-alpine
+
+  nodeSelector: {}
+  tolerations: []
+  affinity: {}
+
